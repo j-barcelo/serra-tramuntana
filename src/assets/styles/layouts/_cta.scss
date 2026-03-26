@@ -1,0 +1,41 @@
+@use "../variables" as var;
+@use "../mixins" as mixin;
+@use "../functions" as *;
+
+.cta {
+  position: relative;
+  padding: to-rem(116) 0 to-rem(120);
+  color: var.$cl-light;
+  text-align: center;
+  background-image: linear-gradient(rgb(42 188 255 / 70%) 0%, rgb(69 171 255 / 40%) 100%), url('../images/Valldemossa.jpg?width=1280');
+  background-position: center;
+  background-size: cover;
+
+  &__message {
+    width: 100%;
+    max-width: to-rem(790);
+    margin-inline: auto;
+    margin-top: to-rem(16);
+    margin-bottom: to-rem(30);
+    font-size: var.$fs-text-md;
+    line-height: var.$lh-text-md;
+    text-wrap: balance;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: to-rem(20);
+    justify-content: center;
+    padding-inline: to-rem(20);
+  }
+
+  &__btn {
+    @include mixin.button(transparent, white, white, to-rem(2));
+
+    &:hover {
+      color: var.$cl-brand-2;
+      background-color: var.$cl-light;
+    }
+  }
+}
