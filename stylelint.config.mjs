@@ -37,7 +37,19 @@ export default {
     "color-named": "never",
     "color-function-notation": "modern",
     "alpha-value-notation": "percentage",
-    "length-zero-no-unit": true,
+    "scale-unlimited/declaration-strict-value": [
+      ["font-size", "margin", "margin-top", "margin-right", "margin-bottom", "margin-left",
+      "margin-inline", "margin-inline-start", "margin-inline-end", "margin-block",
+      "margin-block-start", "margin-block-end", "padding", "padding-top", "padding-right",
+      "padding-bottom", "padding-left", "padding-inline", "padding-inline-start",
+      "padding-inline-end", "padding-block", "padding-block-start", "padding-block-end",
+      "gap", "row-gap", "column-gap", "width", "height", "min-width", "max-width",
+      "min-height", "max-height"],
+      {
+        "ignoreValues": ["0", "auto", "inherit", "unset", "fit-content", "100%", "100vw", "100vh"],
+        "message": "Utilitza la funció to-rem() en lloc de valors fixos en px"
+      }
+    ],
 
     "declaration-block-no-shorthand-property-overrides": true,
     "font-family-name-quotes": "always-where-recommended",
