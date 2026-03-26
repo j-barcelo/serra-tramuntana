@@ -1,0 +1,83 @@
+@use "../variables" as var;
+@use "../mixins" as mixin;
+@use "../functions" as *;
+
+.hero {
+  width: 100%;
+  height: to-rem(1080);
+  padding-block: to-rem(200);
+  padding-top: to-rem(260);
+  margin-bottom: to-rem(-125);
+  color: var.$cl-light;
+  text-align: center;
+  background-image: linear-gradient(rgb(30 28 25 / 70%) 0%, rgb(30 28 25 / 40%) 100%), url('../images/Serra_de_Tramuntana.jpg');
+  background-position: center;
+  background-size: cover;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: to-rem(1080);
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(
+      to top,
+      rgb(255 255 255) 0%,
+      rgb(255 255 255 / 80%) 6%,
+      rgb(255 255 255 / 40%) 15%,
+      rgb(255 255 255 / 10%) 24%,
+      transparent 30%,
+      transparent 100%
+    );
+  }
+
+  @include mixin.breakpoint('md') {
+    padding-top: to-rem(200);
+  }
+
+  /* Elements */
+  &__container {
+    width: 100%;
+    max-width: to-rem(790);
+    margin-inline: auto;
+  }
+
+  &__location {
+    display: inline-flex;
+    gap: to-rem(8);
+    align-items: center;
+    justify-content: center;
+    height: to-rem(40);
+    padding: 0 to-rem(16);
+    margin-bottom: to-rem(26);
+    background-color: rgb(var.$cl-light, 0.2);
+    border: to-rem(1) solid rgb(var.$cl-light, 0.3);
+    border-radius: to-rem(20);
+    backdrop-filter: blur(to-rem(4));
+    transition: all 0.3s;
+
+    &:hover {
+      color: var.$cl-light;
+      background-color: rgb(var.$cl-light, 0.3);
+      border-color: rgb(var.$cl-light, 0.5);
+      backdrop-filter: blur(to-rem(6));
+    }
+  }
+
+  &__highlight {
+    color: var.$cl-brand-1;
+  }
+
+  &__description {
+    margin-bottom: to-rem(48);
+    font-size: var.$fs-text-md;
+    line-height: var.$lh-text-md;
+    text-wrap: balance;
+  }
+
+  &__btn {
+    @include mixin.button(var.$cl-brand-1, var.$cl-light);
+  }
+}

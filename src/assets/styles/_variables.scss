@@ -1,12 +1,75 @@
-@use "sass:color";
+@use 'functions' as *;
 
-$font-family-sans-serif:
-  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$font-family-serif: "Georgia", "Times New Roman", serif;
+/* ══════════════════════════════════════
+    Breakpoints
+   ══════════════════════════════════════ */
+$breakpoints: (
+  'xs': to-rem(420),
+  'sm': to-rem(640),
+  'md': to-rem(768),
+  'lg': to-rem(1024),
+  'xl': to-rem(1280),
+  'xxl': to-rem(1450)
+);
 
-$uoc-corporate: #000078;
-$uoc-masterbrand: #73edff;
-$uoc-bg: color.scale($uoc-masterbrand, $lightness: 70%);
+/* ══════════════════════════════════════
+    Paleta de colors
+   ══════════════════════════════════════ */
+$cl-brand-1: #48B8AB;
+$cl-brand-1-bg: #D9F4F1;
+$cl-brand-2: #4E97D0;
+$cl-brand-2-bg: #D6EAF9;
+$cl-brand-3: #C75B9E;
+$cl-brand-3-bg: #FFD5EF;
+$cl-brand-4: #F6A44D;
+$cl-brand-4-bg: #FFE3C5;
+$cl-brand-5: #FFDC4E;
+$cl-brand-5-bg: #FFF7D8;
+$cl-light: #FFF;
+$cl-light-mod: #F5F5F4;
+$cl-dark: #1C1917;
+$cl-dark-mod: #292524;
+$cl-dark-2: #0C0A09;
+$cl-dark-2-mod: #1C1917;
 
-$mqMinWidth: 420px;
+/* ══════════════════════════════════════
+    Tipografia
+   ══════════════════════════════════════ */
+
+/* font-family */
+$ff-sans-serif: "Alegreya Sans", verdana, tahoma, arial, sans-serif;
+
+/* font-weigth */
+$fw-regular: 400;
+$fw-bold: 700;
+
+/* font-size */
+$fs-display: to-rem(110);
+$fs-title-lg: to-rem(68);
+$fs-title-md: to-rem(53);
+$fs-title-sm: to-rem(42);
+$fs-text-lg: to-rem(33);
+$fs-text-md: to-rem(26);
+$fs-text-sm: to-rem(20);
+$fs-base: to-rem(16);
+$fs-small-lg: to-rem(12);
+$fs-small-md: to-rem(10);
+
+/* line-heigth */
+$lh-display: to-rem(120);
+$lh-title-lg: to-rem(80);
+$lh-title-md: to-rem(60);
+$lh-title-sm: to-rem(60);
+$lh-text-lg: to-rem(40);
+$lh-text-md: to-rem(40);
+$lh-text-sm: to-rem(30);
+$lh-base: to-rem(20);
+$lh-small-lg: to-rem(20);
+$lh-small-md: to-rem(15);
+
+/* ══════════════════════════════════════
+    Dimensions
+   ══════════════════════════════════════ */
+$container-lg-width: to-rem(1620);
+$container-lg-margins: to-rem(150);
+

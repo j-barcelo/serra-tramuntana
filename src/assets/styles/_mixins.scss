@@ -1,0 +1,72 @@
+@use 'sass:map';
+@use 'sass:color';
+@use "variables" as var;
+@use "functions" as *;
+
+/* ══════════════════════════════════════
+    Breakpoints
+   ══════════════════════════════════════ */
+@mixin breakpoint($breakpoint) {
+  @if map.has-key(var.$breakpoints, $breakpoint) {
+    @media (width >= #{map.get(var.$breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @error "El breakpoint '#{$breakpoint}' no existeix";
+  }
+}
+
+/* ══════════════════════════════════════
+    Grid
+   ══════════════════════════════════════ */
+@mixin container {
+  width: 100%;
+  max-width: to-rem(1920);
+  padding-inline: to-rem(20);
+  margin-inline: auto;
+
+  @include breakpoint('lg') {
+    padding-inline: to-rem(60);
+  }
+
+  @include breakpoint('xxl') {
+    padding-inline: var.$container-lg-margins;
+  }
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: to-rem(40);
+
+  @include breakpoint('md') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include breakpoint('xl') {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* ══════════════════════════════════════
+    Buttons
+   ══════════════════════════════════════ */
+@mixin button($bg-color, $text-color, $border-width: 0) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: to-rem(60);
+  padding: 0 to-rem(40);
+  font-size: to-rem(20);
+  font-weight: var.$fw-bold;
+  color: $text-color;
+  cursor: pointer;
+  background-color: $bg-color;
+  border-radius: to-rem(20);
+  transition: background-color 0.3s;
+  
+  &:hover {
+    color: $text-color;
+    background-color: color.adjust($bg-color, $lightness: -10%);
+  }
+}
