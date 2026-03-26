@@ -51,7 +51,7 @@
 /* ══════════════════════════════════════
     Buttons
    ══════════════════════════════════════ */
-@mixin button($bg-color, $text-color, $border-width: 0) {
+@mixin button($bg-color, $text-color, $border-color: transparent, $border-width: 0) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -63,10 +63,24 @@
   cursor: pointer;
   background-color: $bg-color;
   border-radius: to-rem(20);
+  border: $border-width solid $border-color;
   transition: background-color 0.3s;
   
   &:hover {
     color: $text-color;
     background-color: color.adjust($bg-color, $lightness: -10%);
   }
+}
+
+@mixin icon-button($bg-color, $text-color) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: to-rem(60);
+  height: to-rem(60);
+  font-size: to-rem(33);
+  color: $text-color;
+  background-color: $bg-color;
+  border-radius: to-rem(15);
+  transition: all 0.3s;
 }

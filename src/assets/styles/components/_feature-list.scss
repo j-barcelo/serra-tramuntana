@@ -1,0 +1,36 @@
+@use "../variables" as var;
+@use "../mixins" as mixin;
+@use "../functions" as *;
+
+.feature-list {
+  padding-left: 0;
+  margin-top: to-rem(40);
+
+  @include mixin.breakpoint('sm') {
+    padding-left: to-rem(20);
+  }
+
+  @include mixin.breakpoint('xl') {
+    padding-left: to-rem(50);
+  }
+
+  &__item {
+    display: flex;
+    gap: to-rem(20);
+    align-items: flex-start;
+    margin-bottom: to-rem(30);
+  }
+
+  &__icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: to-rem(40);
+    height: to-rem(40);
+    font-size: to-rem(20);
+    color: var.$cl-brand-1;
+    background-color: var.$cl-brand-1-bg;
+    border-radius: to-rem(8);
+  }
+}

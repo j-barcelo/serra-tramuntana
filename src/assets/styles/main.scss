@@ -16,6 +16,12 @@
 @use "layouts/base";
 @use "layouts/menu";
 @use "layouts/hero";
+@use "layouts/descobreix";
+
+/**
+ * Import components
+ */
+@use "components/feature-list";
 
 /**
  * Do NOT include anything else in this file!
