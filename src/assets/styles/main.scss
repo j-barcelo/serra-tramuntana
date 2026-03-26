@@ -17,11 +17,13 @@
 @use "layouts/menu";
 @use "layouts/hero";
 @use "layouts/descobreix";
+@use "layouts/racons";
 
 /**
  * Import components
  */
 @use "components/feature-list";
+@use "components/card";
 
 /**
  * Do NOT include anything else in this file!

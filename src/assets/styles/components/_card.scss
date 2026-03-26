@@ -1,0 +1,50 @@
+@use "../variables" as var;
+@use "../mixins" as mixin;
+@use '../functions' as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: var.$cl-light;
+  border-radius: to-rem(20);
+  box-shadow: rgb(0 0 0 / 10%) 0 to-rem(5) to-rem(25) to-rem(-5), rgb(0 0 0 / 4%) 0 to-rem(10) to-rem(10) to-rem(-5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 to-rem(15) to-rem(30) to-rem(-5) rgba(#C75B9E, 0.2);
+    transform: translateY(to-rem(-6));
+  }
+
+  &__link {
+    position: absolute;
+    bottom: to-rem(40);
+    display: block;
+    padding-top: to-rem(28);
+    font-weight: var.$fw-bold;
+    color: var.$cl-brand-3;
+
+    &:hover {
+      color: var.$cl-brand-3;
+      text-decoration: underline;
+    }
+  }
+
+  &__image {
+    height: to-rem(300);
+    object-fit: cover;
+    border-radius: to-rem(20) to-rem(20) 0 0;
+    transition: transform 0.5s;
+
+    .card:hover & {
+        transform: scale(1.05);
+    }
+  }
+
+  &__text {
+    position: relative;
+    height: 100%;
+    padding: to-rem(24) to-rem(20) to-rem(92);
+  }
+}
