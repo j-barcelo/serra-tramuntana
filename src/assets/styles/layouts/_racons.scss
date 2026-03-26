@@ -9,12 +9,28 @@
   @include mixin.container;
   @include mixin.grid;
 
+  --tab-color: #{var.$cl-brand-3};
+  --tab-color-light: #{var.$cl-brand-3-bg};
+  --tab-color-shadow: #{rgba(var.$cl-brand-3, 0.2)};
+
+  &--patrimoni {
+    --tab-color: #{var.$cl-brand-2};
+    --tab-color-light: #{var.$cl-brand-2-bg};
+    --tab-color-shadow: #{rgba(var.$cl-brand-2, 0.2)};
+  }
+
+  &--natura {
+    --tab-color: #{var.$cl-brand-1};
+    --tab-color-light: #{var.$cl-brand-1-bg};
+    --tab-color-shadow: #{rgba(var.$cl-brand-1, 0.2)};
+  }
+
   &__label {
     margin-bottom: to-rem(30);
     font-size: var.$fs-base;
     font-weight: var.$fw-bold;
     line-height: var.$lh-base;
-    color: var.$cl-brand-3;
+    color: var(--tab-color);
     text-transform: uppercase;
   }
 
@@ -77,21 +93,39 @@
     background-color: #f7f7f7;
     border: to-rem(1) solid transparent;
     border-radius: to-rem(999);
-    transition: 0.2s;
+    transition: background-color 0.3s color 0.3s;
 
     @include mixin.breakpoint('xs') {
       background-color: transparent;
     }
 
     &:hover {
-      color: var.$cl-brand-3;
+      color: var(--tab-color);
     }
 
     &--active {
       font-weight: var.$fw-bold;
-      color: var.$cl-brand-3;
-      background-color: var.$cl-brand-3-bg;
-      border: to-rem(1) solid var.$cl-brand-3;
+      color: var(--tab-color);
+      background-color: var(--tab-color-light);
+      border: to-rem(1) solid var(--tab-color);
+      
+      @include mixin.breakpoint('xs') {
+        background-color: transparent;
+        border: to-rem(1) solid transparent;
+      }
+    }
+  }
+
+  &__tab-indicator {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    background-color: var(--tab-color-light);
+    border: to-rem(1) solid var(--tab-color);
+    border-radius: to-rem(999);
+
+    @include mixin.breakpoint('xs') {
+      display: block;
     }
   }
 
@@ -111,12 +145,26 @@
     }
 
     @include mixin.breakpoint('lg') {
-      grid-column: 1 / 5;
       grid-template-columns: repeat(4, 1fr);
+      grid-column: 1 / 5;
     }
 
     @include mixin.breakpoint('xl') {
       grid-column: 1 / 9;
+    }
+  }
+
+  /* Sobreescriu el bloc .card */
+  &__cards .card:hover {
+    box-shadow: 0 to-rem(15) to-rem(30) to-rem(-5) var(--tab-color-shadow);
+  }
+
+  &__cards .card__link {
+    color: var(--tab-color);
+
+    &:hover {
+      color: var(--tab-color);
+      text-decoration: underline;
     }
   }
 }
