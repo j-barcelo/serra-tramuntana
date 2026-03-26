@@ -1,0 +1,69 @@
+@use 'sass:color';
+@use "../variables" as var;
+@use "../mixins" as mixin;
+@use "../functions" as *;
+
+.activitats {
+  width: 100%;
+  color: var.$cl-light;
+  background-color: var.$cl-dark;
+  
+  &__container {
+    @include mixin.container;
+    @include mixin.grid;
+
+    padding-top: to-rem(140);
+    padding-bottom: to-rem(250);
+  }
+  
+  &__visual {
+    grid-column: 1 / 3;
+
+    @include mixin.breakpoint('md') {
+      grid-column: 1 / 3;
+    }
+
+    @include mixin.breakpoint('xl') {
+      grid-column: 1 / 5;
+    }
+  }
+  
+  &__image {
+    height: 100%;
+    max-height: to-rem(400);
+    object-fit: cover;
+    box-shadow: 0 0 to-rem(60) color.adjust(var.$cl-brand-4, $lightness: -45%, $saturation: -40%,);
+    margin-bottom: to-rem(40);
+
+    @include mixin.breakpoint('md') {
+      max-height: 100%;
+      margin-bottom: 0;
+    }
+
+    @include mixin.breakpoint('xl') {
+      max-height: to-rem(580);
+    }
+  }
+
+  &__text {
+    grid-column: 1 / 3;
+
+    @include mixin.breakpoint('md') {
+      grid-column: 3 / 5;
+    }
+
+    @include mixin.breakpoint('xl') {
+      grid-column: 5 / 9;
+    }
+  }
+  
+  &__label {
+    margin-top: to-rem(5);
+    margin-bottom: to-rem(30);
+    font-size: var.$fs-base;
+    font-weight: var.$fw-bold;
+    line-height: var.$lh-base;
+    color: var.$cl-brand-4;
+    text-transform: uppercase;
+  }
+}

@@ -33,4 +33,15 @@
     background-color: var.$cl-brand-1-bg;
     border-radius: to-rem(8);
   }
+
+  &--activitats {
+    .feature-list__item {
+      margin-bottom: to-rem(50);
+    }
+
+    .feature-list__icon {
+      color: var.$cl-brand-4;
+      background-color: var.$cl-dark-mod;
+    }
+  }
 }
