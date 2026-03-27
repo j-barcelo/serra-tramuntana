@@ -12,7 +12,9 @@
 
 import { animate } from "motion";
 
-
+/* ══════════════════════════════════════
+    Tabs amb animacions
+   ══════════════════════════════════════ */
 const tabList = document.querySelector(".racons__tabpanel");
 
 if (tabList) {
@@ -82,3 +84,43 @@ if (tabList) {
         if (activeTab) updateIndicator(activeTab, false);
     });
 }
+
+
+/* ══════════════════════════════════════
+    Previsualització d'enllaços
+   ══════════════════════════════════════ */
+const preview = document.createElement("div");
+preview.className = "preview";
+document.body.appendChild(preview);
+
+let rafId = null; // Control del requestAnimationFrame
+
+function initPreview(selector) {
+  document.querySelectorAll(selector).forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      const key = el.dataset.previewKey?.trim();
+      if (!key) return;
+
+      preview.className = `preview preview--${key}`;
+      updatePosition(0, 0)
+
+      animate(preview, { opacity: [0, 1], scale: [0.9, 1], y: [10, 0] }, { duration: 0.25, easing: [0.34, 1.56, 0.64, 1] });
+    });
+
+    el.addEventListener("mousemove", (e) => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {updatePosition(e.clientX, e.clientY)});
+    });
+
+    el.addEventListener("mouseleave", () => {
+      animate( preview, { opacity: [1, 0], scale: [1, 0.9], y: [0, 8] }, { duration: 0.2, easing: "ease-in" });
+    });
+  });
+};
+
+function updatePosition(x, y) {
+  preview.style.left = `${x + 20}px`;
+  preview.style.top = `${y - 80}px`;
+};
+
+initPreview("[data-preview-key]");

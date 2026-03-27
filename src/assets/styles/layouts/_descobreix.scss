@@ -61,9 +61,47 @@
   &__image-btn {
     @include mixin.icon-button(var.$cl-brand-1-bg, var.$cl-brand-1);
 
+    position: relative;
+
     &:hover {
       color: var.$cl-light;
       background-color: var.$cl-brand-1;
+    
+      &::before,
+      &::after {
+        opacity: 100%;
+        transform: translateY(-50%) translateX(0);
+      }
+    }
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: calc(100% + #{to-rem(12)});
+      padding: to-rem(6) to-rem(12);
+      font-size: to-rem(20);
+      color: var.$cl-light;
+      white-space: nowrap;
+      pointer-events: none;
+      content: attr(data-tooltip);
+      background-color: var.$cl-dark;
+      border-radius: to-rem(8);
+      opacity: 0%;
+      transform: translateY(-50%) translateX(to-rem(6));
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: calc(100% + #{to-rem(4)});
+      pointer-events: none;
+      content: "";
+      border: to-rem(6) solid transparent;
+      border-left-color: var.$cl-dark;
+      opacity: 0%;
+      transform: translateY(-50%) translateX(to-rem(6));
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
   }
 
