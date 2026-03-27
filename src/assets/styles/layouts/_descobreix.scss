@@ -59,19 +59,17 @@
   }
 
   &__image-btn {
-    @include mixin.icon-button(var.$cl-brand-1-bg, var.$cl-brand-1);
+    @include mixin.icon-button(
+      $color: var.$cl-brand-1,
+      $background-color: var.$cl-brand-1-bg
+    );
 
     position: relative;
 
-    &:hover {
-      color: var.$cl-light;
-      background-color: var.$cl-brand-1;
-    
-      &::before,
-      &::after {
-        opacity: 100%;
-        transform: translateY(-50%) translateX(0);
-      }
+    &:hover::before,
+    &:hover::after {
+      opacity: 100%;
+      transform: translateY(-50%) translateX(0);
     }
 
     &::before {
@@ -85,7 +83,7 @@
       pointer-events: none;
       content: attr(data-tooltip);
       background-color: var.$cl-dark;
-      border-radius: to-rem(8);
+      border-radius: var.$border-radius-xs;
       opacity: 0%;
       transform: translateY(-50%) translateX(to-rem(6));
       transition: opacity 0.3s ease, transform 0.3s ease;
@@ -111,11 +109,11 @@
     width: fit-content;
     min-width: 0;
     max-width: 100%;
-    margin-top: to-rem(-40);
     padding: to-rem(15) to-rem(80) to-rem(30) to-rem(30);
+    margin-top: to-rem(-40);
     background-color: var.$cl-light;
-    border-radius: 1rem;
-    box-shadow: rgb(0 0 0 / 10%) 0 to-rem(20) to-rem(25) to-rem(-5), rgb(0 0 0 / 4%) 0 to-rem(10) to-rem(10) to-rem(-5);
+    border-radius: var.$border-radius-base;
+    box-shadow: rgb(var.$cl-dark-2, 0.1) 0 to-rem(20) to-rem(25) to-rem(-5), rgb(var.$cl-dark-2, 0.04) 0 to-rem(10) to-rem(10) to-rem(-5);
 
     @include mixin.breakpoint('sm') {
       position: absolute;

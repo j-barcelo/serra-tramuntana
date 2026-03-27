@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use "../variables" as var;
 @use "../mixins" as mixin;
 @use "../functions" as *;
@@ -72,12 +73,12 @@
     flex-wrap: wrap;
     gap: to-rem(20);
     background-color: unset;
-    border-radius: to-rem(20);
+    border-radius: var.$border-radius-base;
 
     @include mixin.breakpoint('xs') {
       flex-wrap: nowrap;
       gap: 0;
-      background-color: #f7f7f7;
+      background-color: var.$cl-light-mod;
     }
   }
 
@@ -90,9 +91,9 @@
     font-weight: var.$fw-regular;
     color: rgb(0 0 0);
     cursor: pointer;
-    background-color: #f7f7f7;
+    background-color: var.$cl-light-mod;
     border: to-rem(1) solid transparent;
-    border-radius: to-rem(999);
+    border-radius: var.$border-radius-base;
     transition: background-color 0.3s color 0.3s;
 
     @include mixin.breakpoint('xs') {
@@ -122,7 +123,7 @@
     display: none;
     background-color: var(--tab-color-light);
     border: to-rem(1) solid var(--tab-color);
-    border-radius: to-rem(999);
+    border-radius: var.$border-radius-base;
 
     @include mixin.breakpoint('xs') {
       display: block;

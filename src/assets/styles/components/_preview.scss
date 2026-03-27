@@ -5,14 +5,14 @@
   position: fixed;
   z-index: 9999;
   width: to-rem(260);
-  height: to-rem(180);
+  height: to-rem(146);
   overflow: hidden;
   pointer-events: none;
   outline: to-rem(2) solid rgb(var.$cl-light, 0.3);
   background-position: center;
   background-size: cover;
-  border-radius: 1rem;
-  box-shadow: 0 to-rem(20) to-rem(40) rgb(0 0 0 / 25%);
+  border-radius: var.$border-radius-base;
+  box-shadow: 0 to-rem(20) to-rem(40) rgb(var.$cl-dark-2 , 0.25);
   opacity: 0%;
 }
 

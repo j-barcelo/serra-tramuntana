@@ -26,7 +26,7 @@ $cl-brand-4-bg: #FFE3C5;
 $cl-brand-5: #FFDC4E;
 $cl-brand-5-bg: #FFF7D8;
 $cl-light: #FFF;
-$cl-light-mod: #F5F5F4;
+$cl-light-mod: #F5F5F5;
 $cl-dark: #1C1917;
 $cl-dark-mod: #292524;
 $cl-dark-2: #0C0A09;
@@ -71,5 +71,11 @@ $lh-small-md: to-rem(15);
     Dimensions
    ══════════════════════════════════════ */
 $container-lg-width: to-rem(1620);
-$container-lg-margins: to-rem(150);
+$container-sm-width: to-rem(790);
 
+/* ══════════════════════════════════════
+    Border-radius
+   ══════════════════════════════════════ */
+$border-radius-base: to-rem(20);
+$border-radius-sm: to-rem(15);
+$border-radius-xs: to-rem(10);

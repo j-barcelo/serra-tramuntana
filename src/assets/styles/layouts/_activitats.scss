@@ -31,9 +31,9 @@
   &__image {
     height: 100%;
     max-height: to-rem(400);
+    margin-bottom: to-rem(40);
     object-fit: cover;
     box-shadow: 0 0 to-rem(60) color.adjust(var.$cl-brand-4, $lightness: -45%, $saturation: -40%,);
-    margin-bottom: to-rem(40);
 
     @include mixin.breakpoint('md') {
       max-height: 100%;

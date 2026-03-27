@@ -67,7 +67,7 @@ a {
 img {
     width: 100%;
     height: auto;
-    border-radius: to-rem(20);
+    border-radius: var.$border-radius-base;
 }
 
 /* Llistes */

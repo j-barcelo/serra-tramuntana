@@ -85,8 +85,8 @@
     width: to-rem(40);
     height: to-rem(40);
     background-color: var.$cl-dark-2-mod;
-    border-radius: to-rem(10);
-    transition: 0.2s;
+    border-radius: var.$border-radius-xs;
+    transition: 0.3s;
 
     &:hover {
       color: var.$cl-dark-2;
@@ -101,7 +101,7 @@
     justify-content: space-between;
     padding-top: to-rem(58);
     margin-top: to-rem(40);
-    border-top: to-rem(1) solid rgb(255 255 255 / 10%);
+    border-top: to-rem(1) solid var.$cl-dark-2-mod;
 
     @include mixin.breakpoint('md') {
       flex-direction: row;

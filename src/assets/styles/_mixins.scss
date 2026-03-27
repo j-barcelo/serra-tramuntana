@@ -30,7 +30,7 @@
   }
 
   @include breakpoint('xxl') {
-    padding-inline: var.$container-lg-margins;
+    padding-inline: to-rem(150);
   }
 }
 
@@ -51,7 +51,7 @@
 /* ══════════════════════════════════════
     Buttons
    ══════════════════════════════════════ */
-@mixin button($bg-color, $text-color, $border-color: transparent, $border-width: 0) {
+@mixin button($color, $background-color, $border-color: transparent, $border-width: 0, $hover-color: var.$cl-dark) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -59,28 +59,38 @@
   padding: 0 to-rem(40);
   font-size: to-rem(20);
   font-weight: var.$fw-bold;
-  color: $text-color;
+  color: $color;
   cursor: pointer;
-  background-color: $bg-color;
-  border-radius: to-rem(20);
+  background-color: $background-color;
   border: $border-width solid $border-color;
+  border-radius: var.$border-radius-base;
   transition: background-color 0.3s;
   
   &:hover {
-    color: $text-color;
-    background-color: color.adjust($bg-color, $lightness: -10%);
+    @if $border-color != transparent and $border-width != 0 {
+      color: $hover-color;
+      background-color: $color;
+    } @else {
+      color: $color;
+      background-color: color.adjust($background-color, $lightness: -10%);
+    }
   }
 }
 
-@mixin icon-button($bg-color, $text-color) {
+@mixin icon-button($color, $background-color) {
   display: flex;
   align-items: center;
   justify-content: center;
   width: to-rem(60);
   height: to-rem(60);
   font-size: to-rem(33);
-  color: $text-color;
-  background-color: $bg-color;
-  border-radius: to-rem(15);
+  color: $color;
+  background-color: $background-color;
+  border-radius: var.$border-radius-sm;
   transition: all 0.3s;
+  
+  &:hover {
+    color: $background-color;
+    background-color: $color;
+  }
 }

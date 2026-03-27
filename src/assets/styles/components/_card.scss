@@ -8,12 +8,12 @@
   height: 100%;
   overflow: hidden;
   background-color: var.$cl-light;
-  border-radius: to-rem(20);
-  box-shadow: rgb(0 0 0 / 10%) 0 to-rem(5) to-rem(25) to-rem(-5), rgb(0 0 0 / 4%) 0 to-rem(10) to-rem(10) to-rem(-5);
+  border-radius: var.$border-radius-base;
+  box-shadow: rgb(var.$cl-dark-2, 0.1) 0 to-rem(5) to-rem(25) to-rem(-5), rgb(var.$cl-dark-2, 0.04) 0 to-rem(10) to-rem(10) to-rem(-5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
-    box-shadow: 0 to-rem(15) to-rem(30) to-rem(-5) rgba(#C75B9E, 0.2);
+    box-shadow: 0 to-rem(15) to-rem(30) to-rem(-5) rgba(var.$cl-brand-3, 0.2);
     transform: translateY(to-rem(-6));
   }
 
@@ -34,7 +34,7 @@
   &__image {
     height: to-rem(300);
     object-fit: cover;
-    border-radius: to-rem(20) to-rem(20) 0 0;
+    border-radius: var.$border-radius-base var.$border-radius-base 0 0;
     transition: transform 0.5s;
 
     .card:hover & {

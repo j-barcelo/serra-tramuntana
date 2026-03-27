@@ -10,7 +10,7 @@
   margin-bottom: to-rem(-125);
   color: var.$cl-light;
   text-align: center;
-  background-image: linear-gradient(rgb(30 28 25 / 70%) 0%, rgb(30 28 25 / 40%) 100%), url('../images/Serra_de_Tramuntana.jpg');
+  background-image: linear-gradient(rgb(var.$cl-dark, 0.7) 0%, rgb(var.$cl-dark, 0.4) 100%), url('../images/Serra_de_Tramuntana.jpg');
   background-position: center;
   background-size: cover;
 
@@ -24,10 +24,10 @@
     content: "";
     background: linear-gradient(
       to top,
-      rgb(255 255 255) 0%,
-      rgb(255 255 255 / 80%) 6%,
-      rgb(255 255 255 / 40%) 15%,
-      rgb(255 255 255 / 10%) 24%,
+      var.$cl-light 0%,
+      rgb(var.$cl-light, 0.8) 6%,
+      rgb(var.$cl-light, 0.4) 15%,
+      rgb(var.$cl-light, 0.1) 24%,
       transparent 30%,
       transparent 100%
     );
@@ -40,7 +40,7 @@
   /* Elements */
   &__container {
     width: 100%;
-    max-width: to-rem(790);
+    max-width: var.$container-sm-width;
     margin-inline: auto;
   }
 
@@ -54,7 +54,7 @@
     margin-bottom: to-rem(26);
     background-color: rgb(var.$cl-light, 0.2);
     border: to-rem(1) solid rgb(var.$cl-light, 0.3);
-    border-radius: to-rem(20);
+    border-radius: var.$border-radius-base;
     backdrop-filter: blur(to-rem(4));
     transition: all 0.3s;
 
@@ -78,6 +78,9 @@
   }
 
   &__btn {
-    @include mixin.button(var.$cl-brand-1, var.$cl-light);
+    @include mixin.button(
+      $color: var.$cl-light,
+      $background-color: var.$cl-brand-1
+    );
   }
 }
