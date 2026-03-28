@@ -26,13 +26,11 @@
     --tab-color-shadow: #{rgba(var.$cl-brand-1, 0.2)};
   }
 
+  /* Elements */
   &__label {
-    margin-bottom: to-rem(30);
-    font-size: var.$fs-base;
-    font-weight: var.$fw-bold;
-    line-height: var.$lh-base;
+    @include mixin.section-label;
+
     color: var(--tab-color);
-    text-transform: uppercase;
   }
 
   &__text {
@@ -87,7 +85,6 @@
     z-index: 2;
     padding: to-rem(7) to-rem(20);
     font-family: inherit;
-    font-size: to-rem(20);
     font-weight: var.$fw-regular;
     color: rgb(0 0 0);
     cursor: pointer;
@@ -96,9 +93,12 @@
     border-radius: var.$border-radius-base;
     transition: background-color 0.3s color 0.3s;
 
+    @include mixin.font('text-sm');
+
     @include mixin.breakpoint('xs') {
       background-color: transparent;
     }
+
 
     &:hover {
       color: var(--tab-color);
@@ -146,11 +146,11 @@
     }
 
     @include mixin.breakpoint('lg') {
-      grid-template-columns: repeat(4, 1fr);
       grid-column: 1 / 5;
     }
 
     @include mixin.breakpoint('xl') {
+      grid-template-columns: repeat(4, 1fr);
       grid-column: 1 / 9;
     }
   }

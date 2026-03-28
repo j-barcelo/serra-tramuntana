@@ -1,5 +1,4 @@
 @use 'sass:map';
-@use 'sass:color';
 @use "variables" as var;
 @use "functions" as *;
 
@@ -7,12 +6,35 @@
     Breakpoints
    ══════════════════════════════════════ */
 @mixin breakpoint($breakpoint) {
-  @if map.has-key(var.$breakpoints, $breakpoint) {
-    @media (width >= #{map.get(var.$breakpoints, $breakpoint)}) {
-      @content;
+  @if not map.has-key(var.$breakpoints, $breakpoint) { @error "El breakpoint '#{$breakpoint}' no existeix."; }
+
+  @media (width >= #{map.get(var.$breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+/* ══════════════════════════════════════
+    Fonts
+   ══════════════════════════════════════ */
+@mixin font($key) {
+  $font-breakpoints: map.get(var.$fonts, $key);
+  
+  @if not $font-breakpoints { @error "El font '#{$key}' no existeix."; }
+
+  $base: map.get($font-breakpoints, base);
+  
+  @if not $base { @error "El font '#{$key}' no té valors 'base' definits"; }
+
+  font-size: map.get($base, fs);
+  line-height: map.get($base, lh);
+
+  @each $bp, $values in $font-breakpoints {
+    @if $bp != base {
+      @include breakpoint($bp) {
+        font-size: map.get($values, fs);
+        line-height: map.get($values, lh);
+      }
     }
-  } @else {
-    @error "El breakpoint '#{$breakpoint}' no existeix";
   }
 }
 
@@ -57,24 +79,26 @@
   justify-content: center;
   height: to-rem(60);
   padding: 0 to-rem(40);
-  font-size: to-rem(20);
   font-weight: var.$fw-bold;
   color: $color;
   cursor: pointer;
   background-color: $background-color;
   border: $border-width solid $border-color;
   border-radius: var.$border-radius-base;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
+
+  @include font('text-sm');
   
   &:hover {
     @if $border-color != transparent and $border-width != 0 {
       color: $hover-color;
       background-color: $color;
     } @else {
-      color: $color;
-      background-color: color.adjust($background-color, $lightness: -10%);
+      color: $background-color;
+      background-color: $color;
     }
   }
+
 }
 
 @mixin icon-button($color, $background-color) {
@@ -83,14 +107,29 @@
   justify-content: center;
   width: to-rem(60);
   height: to-rem(60);
-  font-size: to-rem(33);
   color: $color;
   background-color: $background-color;
   border-radius: var.$border-radius-sm;
   transition: all 0.3s;
   
+  @include font('text-lg');
+  
   &:hover {
     color: $background-color;
     background-color: $color;
   }
+}
+
+
+/* ══════════════════════════════════════
+    Section label
+   ══════════════════════════════════════ */
+@mixin section-label {
+  margin-bottom: to-rem(30);
+  font-size: var.$fs-small-lg;
+  font-weight: var.$fw-bold;
+  line-height: var.$lh-small-lg;
+  text-transform: uppercase;
+
+  @include font('base');
 }

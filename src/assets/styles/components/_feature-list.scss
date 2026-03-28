@@ -28,7 +28,7 @@
     justify-content: center;
     width: to-rem(40);
     height: to-rem(40);
-    font-size: to-rem(20);
+    font-size: var.$fs-text-sm;
     color: var.$cl-brand-1;
     background-color: var.$cl-brand-1-bg;
     border-radius: var.$border-radius-xs;

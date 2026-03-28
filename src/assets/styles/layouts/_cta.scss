@@ -7,19 +7,26 @@
   padding: to-rem(116) 0 to-rem(120);
   color: var.$cl-light;
   text-align: center;
-  background-image: linear-gradient(rgb(var.$cl-brand-2, 0.7) 0%, rgb(var.$cl-brand-2, 0.4) 100%), url('../images/Valldemossa.jpg?width=1280');
+  background-image: linear-gradient(rgb(var.$cl-brand-2, 0.8) 0%, rgb(var.$cl-brand-2, 0.5) 100%), url('../images/Valldemossa.jpg?width=1280');
   background-position: center;
   background-size: cover;
 
+  /* Elements */
   &__message {
     width: 100%;
-    max-width: var.$container-sm-width;
+    max-width: var.$container-xs-width;
+    padding-inline: to-rem(20);
     margin-inline: auto;
     margin-top: to-rem(16);
     margin-bottom: to-rem(30);
-    font-size: var.$fs-text-md;
-    line-height: var.$lh-text-md;
     text-wrap: balance;
+    
+    @include mixin.font('text-md');
+
+    @include mixin.breakpoint('lg') {
+      max-width: var.$container-sm-width;
+      padding-inline: 0;
+    }
   }
 
   &__links {

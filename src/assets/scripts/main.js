@@ -10,7 +10,7 @@
  * Write any other JavaScript below
  */
 
-import { animate } from "motion";
+import { animate, inView  } from "motion";
 
 /* ══════════════════════════════════════
     Tabs amb animacions
@@ -49,7 +49,7 @@ if (tabList) {
         indicator.style.height = `${tabRect.height}px`;
 
         if (withAnimation) {
-            animate(indicator, { x, width: tabRect.width }, { duration: 0.35, easing: "ease-in-out" });
+            animate(indicator, { x, width: tabRect.width }, { duration: 0.35, easing: "easeInOut" });
         } else {
             indicator.style.transform = `translateX(${x}px)`;
             indicator.style.width = `${tabRect.width}px`;
@@ -113,7 +113,7 @@ function initPreview(selector) {
     });
 
     el.addEventListener("mouseleave", () => {
-      animate( preview, { opacity: [1, 0], scale: [1, 0.9], y: [0, 8] }, { duration: 0.2, easing: "ease-in" });
+      animate( preview, { opacity: [1, 0], scale: [1, 0.9], y: [0, 8] }, { duration: 0.2 });
     });
   });
 };
@@ -124,3 +124,19 @@ function updatePosition(x, y) {
 };
 
 initPreview("[data-preview-key]");
+
+/* ══════════════════════════════════════
+    Animacions hero section
+   ══════════════════════════════════════ */
+animate(".hero__location", { opacity: [0, 1], y: [-20, 0] }, { duration: 0.4, delay: 0.1, easing: "easeOut" });
+animate(".hero__container h1", { opacity: [0, 1], y: [40, 0] }, { duration: 0.5, delay: 0.3, easing: [0.25, 0.1, 0.25, 1] });
+animate(".hero__description", { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, delay: 0.4, easing: "easeOut" });
+animate(".hero__btn", { opacity: [0, 1], y: [20, 0] }, { duration: 0.4, delay: 0.6, easing: "easeOut" });
+
+inView(".hero__btn", (el) => {
+  let interval = setInterval(() => {
+    animate(el, { rotate: [0, 20, -20, 0] }, { duration: 0.6});
+  }, 5000);
+
+  return () => clearInterval(interval);
+});

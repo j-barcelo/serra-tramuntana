@@ -8,6 +8,7 @@
   color: var.$cl-light;
   background-color: var.$cl-dark;
   
+  /* Elements */
   &__container {
     @include mixin.container;
     @include mixin.grid;
@@ -33,7 +34,7 @@
     max-height: to-rem(400);
     margin-bottom: to-rem(40);
     object-fit: cover;
-    box-shadow: 0 0 to-rem(60) color.adjust(var.$cl-brand-4, $lightness: -45%, $saturation: -40%,);
+    box-shadow: 0 0 to-rem(60) color.scale(var.$cl-brand-4, $lightness: -70%, $saturation: -45%,);
 
     @include mixin.breakpoint('md') {
       max-height: 100%;
@@ -58,12 +59,8 @@
   }
   
   &__label {
-    margin-top: to-rem(5);
-    margin-bottom: to-rem(30);
-    font-size: var.$fs-base;
-    font-weight: var.$fw-bold;
-    line-height: var.$lh-base;
+    @include mixin.section-label;
+    
     color: var.$cl-brand-4;
-    text-transform: uppercase;
   }
 }

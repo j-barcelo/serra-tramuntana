@@ -23,35 +23,30 @@ html {
 
 body {
     font-family: var.$ff-sans-serif;
-    font-size: var.$fs-text-sm;
-    line-height: var.$lh-text-sm;
     background-color: var.$cl-light;
+
+    @include mixin.font('text-sm');
 }
 
 /* Textos */
 h1 {
     margin-bottom: to-rem(26);
-    font-size: var.$fs-title-md;
-    line-height: var.$lh-title-md;
     overflow-wrap: break-word;
 
-    @include mixin.breakpoint('md') {
-      font-size: var.$fs-display;
-      line-height: var.$lh-display;
-    }
+    @include mixin.font('display');
 }
 
 h2 {
     margin-bottom: to-rem(4);
-    font-size: var.$fs-title-md;
-    line-height: var.$lh-title-md;
     overflow-wrap: break-word;
+
+    @include mixin.font('title-md');
 }
 
 h3 {
     margin-bottom: to-rem(8);
-    font-size: var.$fs-text-lg;
-    line-height: var.$lh-text-lg;
+
+    @include mixin.font('text-lg');
 }
 
 a {
