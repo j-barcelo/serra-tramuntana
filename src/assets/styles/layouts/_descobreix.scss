@@ -29,11 +29,12 @@
     position: relative;
     z-index: 1;
     grid-column: 1 / 3;
-    padding-bottom: to-rem(40);
+    padding-bottom: to-rem(80);
     margin-top: to-rem(40);
 
     @include mixin.breakpoint('md') {
       grid-column: 3 / 5;
+      padding-bottom: to-rem(40);
       margin-top: to-rem(125);
     }
 
