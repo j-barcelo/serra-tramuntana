@@ -15,7 +15,7 @@ import { animate, inView  } from "motion";
 /* ══════════════════════════════════════
     Tabs amb animacions
    ══════════════════════════════════════ */
-const tabList = document.querySelector(".racons__tabpanel");
+const tabList = document.querySelector(".racons__tablist");
 
 if (tabList) {
   // Crea l'indicador
