@@ -91,7 +91,7 @@
     background-color: var.$cl-light-mod;
     border: to-rem(1) solid transparent;
     border-radius: var.$border-radius-base;
-    transition: background-color 0.3s color 0.3s;
+    transition: all 0.3s;
 
     @include mixin.font('text-sm');
 
@@ -130,28 +130,34 @@
     }
   }
 
-  &__cards {
-    display: grid;
-    grid-template-columns: 1fr;
+  &__tabpanel {
     grid-column: 1 / 3;
-    gap: to-rem(40);
     margin-top: to-rem(40);
-
-    @include mixin.breakpoint('sm') {
-      grid-template-columns: repeat(2, 1fr);
-    }
 
     @include mixin.breakpoint('md') {
       grid-column: 1 / 5;
     }
 
-    @include mixin.breakpoint('lg') {
-      grid-column: 1 / 5;
+    @include mixin.breakpoint('xl') {
+      grid-column: 1 / 9;
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: to-rem(40);
+
+    @include mixin.breakpoint('sm') {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @include mixin.breakpoint('xl') {
       grid-template-columns: repeat(4, 1fr);
-      grid-column: 1 / 9;
     }
   }
 

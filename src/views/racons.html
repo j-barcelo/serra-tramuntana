@@ -1,175 +1,185 @@
 <section class="racons" id="racons">
-  <div class="racons__text">
+  <header class="racons__text">
     <p class="racons__label">Pobles i racons</p>
     <h2>Joies amagades entre les muntanyes</h2>
-  </div>
+  </header>
 
   <div class="racons__tabs">
     <div role="tablist" aria-label="Filtra per categoria" class="racons__tabpanel">
-      <button role="tab" aria-selected="true" data-tab="pobles" aria-controls="racons-llista" class="racons__tab-btn racons__tab-btn--active">Pobles</button>
-      <button role="tab" aria-selected="false" data-tab="patrimoni" aria-controls="racons-llista" class="racons__tab-btn">Patrimoni Humà</button>
-      <button role="tab" aria-selected="false" data-tab="natura" aria-controls="racons-llista" class="racons__tab-btn">Natura</button>
+      <button role="tab" aria-selected="true" data-tab="pobles" aria-controls="tab-pobles" class="racons__tab-btn racons__tab-btn--active">Pobles</button>
+      <button role="tab" aria-selected="false" data-tab="patrimoni" aria-controls="tab-patrimoni" class="racons__tab-btn">Patrimoni Humà</button>
+      <button role="tab" aria-selected="false" data-tab="natura" aria-controls="tab-natura" class="racons__tab-btn">Natura</button>
     </div>
   </div>
 
-  <ul role="tabpanel" class="racons__cards">
-    <!-- POBLES -->
-    <li data-category="pobles">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Valldemossa_Carrer.jpg",
-          "alt": "Fotografia d'un carrer de Valldemossa",
-          "title": "Valldemossa",
-          "text": "Un poble de carrers empedrats i encant atemporal, famós per la Cartoixa i l'estada de Chopin i George Sand.",
-          "href": "https://serradetramuntana.net/-/valldemossa",
-          "preview": "valldemossa"
-        }
-      </include>
-    </li>
+  <div role="tabpanel" id="tab-pobles" class="racons__tabpanel">
+    <ul class="racons__cards">
+      <!-- POBLES -->
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Valldemossa_Carrer.jpg",
+            "alt": "Fotografia d'un carrer de Valldemossa",
+            "title": "Valldemossa",
+            "text": "Un poble de carrers empedrats i encant atemporal, famós per la Cartoixa i l'estada de Chopin i George Sand.",
+            "href": "https://serradetramuntana.net/-/valldemossa",
+            "preview": "valldemossa"
+          }
+        </include>
+      </li>
 
-    <li data-category="pobles">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Tranvia_de_Soller.jpg",
-          "alt": "Fotografia del tranvia de Soller",
-          "title": "Sóller",
-          "text": "Envoltat de muntanyes i tarongers, amb un encant modernista i un tramvia històric que connecta amb el port.",
-          "href": "https://serradetramuntana.net/-/soller",
-          "preview": "soller"
-        }
-      </include>
-    </li>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Tranvia_de_Soller.jpg",
+            "alt": "Fotografia del tranvia de Soller",
+            "title": "Sóller",
+            "text": "Envoltat de muntanyes i tarongers, amb un encant modernista i un tramvia històric que connecta amb el port.",
+            "href": "https://serradetramuntana.net/-/soller",
+            "preview": "soller"
+          }
+        </include>
+      </li>
 
-    <li data-category="pobles">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Banyalbufar.jpg",
-          "alt": "Fotografia de Banyalbufar",
-          "title": "Banyalbufar",
-          "text": "Un indret espectacular entre penya-segats, famós per la seva carretera sinuosa i la desembocadura del Torrent de Pareis.",
-          "href": "https://serradetramuntana.net/-/banyalbufar",
-          "preview": "banyalbufar"
-        }
-      </include>
-    </li>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Banyalbufar.jpg",
+            "alt": "Fotografia de Banyalbufar",
+            "title": "Banyalbufar",
+            "text": "Un indret espectacular entre penya-segats, famós per la seva carretera sinuosa i la desembocadura del Torrent de Pareis.",
+            "href": "https://serradetramuntana.net/-/banyalbufar",
+            "preview": "banyalbufar"
+          }
+        </include>
+      </li>
 
-    <li data-category="pobles">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Fornalutx.jpg",
-          "alt": "Fotografia d'un carrer de Fornalutx",
-          "title": "Fornalutx",
-          "text": "Considerat un dels pobles més bonics, amb cases de pedra i carrerons que reflecteixen l'autenticitat mallorquina.",
-          "href": "https://serradetramuntana.net/-/fornalutx",
-          "preview": "fornalutx"
-        }
-      </include>
-    </li>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Fornalutx.jpg",
+            "alt": "Fotografia d'un carrer de Fornalutx",
+            "title": "Fornalutx",
+            "text": "Considerat un dels pobles més bonics, amb cases de pedra i carrerons que reflecteixen l'autenticitat mallorquina.",
+            "href": "https://serradetramuntana.net/-/fornalutx",
+            "preview": "fornalutx"
+          }
+        </include>
+      </li>
+    </ul>
+  </div>
 
-    <!-- PATRIMONI -->
-    <li data-category="patrimoni">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Castell_Alaro.jpg",
-          "alt": "Fotografia del castell d'Alaró",
-          "title": "Castell d'Alaró",
-          "text": "Una fortalesa antiga sobre la muntanya, amb vistes panoràmiques que enamoren els amants del senderisme i la història.",
-          "href": "https://visit.ajalaro.net/castell",
-          "preview": "castell-alaro"
-        }
-      </include>
-    </li>
+  <div role="tabpanel" id="tab-patrimoni" hidden class="racons__tabpanel">
+    <ul class="racons__cards">
+      <!-- PATRIMONI -->
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Castell_Alaro.jpg",
+            "alt": "Fotografia del castell d'Alaró",
+            "title": "Castell d'Alaró",
+            "text": "Una fortalesa antiga sobre la muntanya, amb vistes panoràmiques que enamoren els amants del senderisme i la història.",
+            "href": "https://visit.ajalaro.net/castell",
+            "preview": "castell-alaro"
+          }
+        </include>
+      </li>
 
-    <li data-category="patrimoni">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Biniaraix.jpg",
-          "alt": "Fotografia del cami de pedra en sec de Biniaraix",
-          "title": "Barranc de Biniaraix",
-          "text": "Un barranc espectacular ple de camins empedrats i torrents, ideal per caminar entre la natura i les margades tradicionals.",
-          "href": "https://caminsdepedra.conselldemallorca.es/-/el-cami-vell-del-barranc-de-biniaraix",
-          "preview": "barranc-biniaraix"
-        }
-      </include>
-    </li>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Biniaraix.jpg",
+            "alt": "Fotografia del cami de pedra en sec de Biniaraix",
+            "title": "Barranc de Biniaraix",
+            "text": "Un barranc espectacular ple de camins empedrats i torrents, ideal per caminar entre la natura i les margades tradicionals.",
+            "href": "https://caminsdepedra.conselldemallorca.es/-/el-cami-vell-del-barranc-de-biniaraix",
+            "preview": "barranc-biniaraix"
+          }
+        </include>
+      </li>
 
-    <li data-category="patrimoni">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Raixa.jpg",
-          "alt": "Fotografia la casa de la possessió de Raixa",
-          "title": "Finca de Raixa",
-          "text": "Una històrica finca agrícola amb jardins i arquitectura mallorquina, perfectament integrada a la serra de Tramuntana.",
-          "href": "https://raixa.conselldemallorca.es/",
-          "preview": "raixa"
-        }
-      </include>
-    </li>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Raixa.jpg",
+            "alt": "Fotografia la casa de la possessió de Raixa",
+            "title": "Finca de Raixa",
+            "text": "Una històrica finca agrícola amb jardins i arquitectura mallorquina, perfectament integrada a la serra de Tramuntana.",
+            "href": "https://raixa.conselldemallorca.es/",
+            "preview": "raixa"
+          }
+        </include>
+      </li>
 
-    <li data-category="patrimoni">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Santuari_de_Lluc.jpg",
-          "alt": "Fotografia d'un dels patis del Santuari de Lluc",
-          "title": "Santuari de Lluc",
-          "text": "Un lloc de peregrinació i espiritualitat, envoltat de muntanyes i boscos, amb una basílica emblemàtica i un ambient de pau.",
-          "href": "https://www.lluc.net/ca/",
-          "preview": "santuari-de-lluc"
-        }
-      </include>
-    </li>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Santuari_de_Lluc.jpg",
+            "alt": "Fotografia d'un dels patis del Santuari de Lluc",
+            "title": "Santuari de Lluc",
+            "text": "Un lloc de peregrinació i espiritualitat, envoltat de muntanyes i boscos, amb una basílica emblemàtica i un ambient de pau.",
+            "href": "https://www.lluc.net/ca/",
+            "preview": "santuari-de-lluc"
+          }
+        </include>
+      </li>
+    </ul>
+  </div>
 
-    <!-- NATURA -->
-    <li data-category="natura">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Sa_Calobra.jpg",
-          "alt": "Fotografia de Sa Calobra",
-          "title": "Sa Calobra",
-          "text": "Petita cala entre muntanyes, amb un paisatge espectacular i accés emblemàtic per carretera sinuosa.",
-          "href": "https://www.illesbalears.travel/ca/mallorca/cala-sa-calobra",
-          "preview": "sa-calobra"
-        }
-      </include>
-    </li>
+  <div role="tabpanel" id="tab-natura" hidden class="racons__tabpanel">
+    <ul class="racons__cards">
+      <!-- NATURA -->
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Sa_Calobra.jpg",
+            "alt": "Fotografia de Sa Calobra",
+            "title": "Sa Calobra",
+            "text": "Petita cala entre muntanyes, amb un paisatge espectacular i accés emblemàtic per carretera sinuosa.",
+            "href": "https://www.illesbalears.travel/ca/mallorca/cala-sa-calobra",
+            "preview": "sa-calobra"
+          }
+        </include>
+      </li>
 
-    <li data-category="natura">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Torrent_de_Pareis.jpg",
-          "alt": "Fotografia del torrent de Pareis",
-          "title": "Torrent de Pareis",
-          "text": "Impressionant pas entre grans parets de roca, ideal per a senderisme i per descobrir la força de la natura mallorquina.",
-          "href": "https://www.caib.es/sites/espaisnaturalsprotegits/ca/monumento_natural_del_torrent_de_pareis/",
-          "preview": "torrent-de-pareis"
-        }
-      </include>
-    </li>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Torrent_de_Pareis.jpg",
+            "alt": "Fotografia del torrent de Pareis",
+            "title": "Torrent de Pareis",
+            "text": "Impressionant pas entre grans parets de roca, ideal per a senderisme i per descobrir la força de la natura mallorquina.",
+            "href": "https://www.caib.es/sites/espaisnaturalsprotegits/ca/monumento_natural_del_torrent_de_pareis/",
+            "preview": "torrent-de-pareis"
+          }
+        </include>
+      </li>
 
-    <li data-category="natura">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Fonts_Ufanes.jpg",
-          "alt": "Fotografia de les fonts ufanes",
-          "title": "Fonts ufanes",
-          "text": "Fonts naturals que brollen després de pluges intenses, un fenomen únic envoltat de boscos i prats.",
-          "href": "https://www.caib.es/sites/espaisnaturalsprotegits/ca/monumento_natural_de_ses_fonts_ufanes/",
-          "preview": "fonts-ufanes"
-        }
-      </include>
-    </li>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Fonts_Ufanes.jpg",
+            "alt": "Fotografia de les fonts ufanes",
+            "title": "Fonts ufanes",
+            "text": "Fonts naturals que brollen després de pluges intenses, un fenomen únic envoltat de boscos i prats.",
+            "href": "https://www.caib.es/sites/espaisnaturalsprotegits/ca/monumento_natural_de_ses_fonts_ufanes/",
+            "preview": "fonts-ufanes"
+          }
+        </include>
+      </li>
 
-    <li data-category="natura">
-      <include src="./views/components/card.html">
-        {
-          "image": "./assets/images/Gorg_Blau.jpg",
-          "alt": "Fotografia desde el mirador del Gorg Blau",
-          "title": "Gorg Blau",
-          "text": "Pantà i espai natural envoltat de muntanya, amb aigües tranquil·les i vistes captivadores per passejades.",
-          "href": "https://www.illesbalears.travel/ca/mallorca/paratge-natural-puig-major-i-gorg-blau",
-          "preview": "gorg-blau"
-        }
-      </include>
-    </li>
-  </ul>
+      <li>
+        <include src="./views/components/card.html">
+          {
+            "image": "./assets/images/Gorg_Blau.jpg",
+            "alt": "Fotografia desde el mirador del Gorg Blau",
+            "title": "Gorg Blau",
+            "text": "Pantà i espai natural envoltat de muntanya, amb aigües tranquil·les i vistes captivadores per passejades.",
+            "href": "https://www.illesbalears.travel/ca/mallorca/paratge-natural-puig-major-i-gorg-blau",
+            "preview": "gorg-blau"
+          }
+        </include>
+      </li>
+    </ul>
+  </div>
 </section>
